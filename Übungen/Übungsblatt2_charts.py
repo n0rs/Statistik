@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-# Daten in DataFrame umwandeln
+# Daten 
 data = {
     "G":  [1,1,1,1,1,1,2,2,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,1,2,1,1,1,1,1,1,1,1,2,2,2],
     "S":  [12,13,12,12,9,12,14,10,18,10,13,15,13,16,14,13,13,17,12,15,13,13,15,13,15,12,14,10,12,17,11,14,11,13,11,7],
