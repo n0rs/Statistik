@@ -94,13 +94,13 @@ Nr 1.
 
 - **G (Geschlecht):** **Nominalskala** (keine natürliche Reihenfolge)
     
-- **S (Studiendauer):** **Verhältnisskala** (metrisch, natürlicher Nullpunkt, Abstände interpretierbar)
+- **S (Studiendauer):** **Absolutskala**
     
-- **E (Engagement):** **Ordinalskala** (Reihenfolge, aber keine festen Abstände)
+- **E (Engagement):** **Ordinalskala** 
     
 - **D (Ausrichtung der Thesis):** **Nominalskala** (keine Reihenfolge)
     
-- **N (Note Kolloquium):** **Ordinalskala** (Reihenfolge vorhanden, aber Abstände nicht exakt interpretierbar)
+- **N (Note Kolloquium):** **Ordinalskala** 
 
 ## **Aufgabe 3: Grafische Darstellung der Häufigkeitsverteilungen**
 
