@@ -43,13 +43,13 @@ Nr 1.
     
 3. **Erhebungsmerkmale und mögliche Merkmalsausprägungen:**
     
-    - **G (Geschlecht)**:
+    - **G (Geschlecht, nominal)**:
         
         - 1 = weiblich
             
         - 2 = männlich
             
-    - **S (Studiendauer in Semestern)**:
+    - **S (Studiendauer in Semestern, diskret)**:
         
         - Ganzzahlige Werte von 7 bis 18
             
@@ -83,9 +83,9 @@ Nr 1.
             
         - 3 = befriedigend
             
-        - 4 = ausreichend
+        - 4 = ausreichend (kommt nicht vor)
             
-        - 5 = mangelhaft (kommt hier nicht vor)
+        - 5 = mangelhaft 
             
 
 ---
@@ -118,3 +118,5 @@ Ich werde jetzt die Häufigkeitsverteilungen der fünf Merkmale als Diagramme er
 5. **Gesamtnote Kolloquium**: Die meisten Studierenden erhalten „gut“ oder „sehr gut“.
 
 # Übungsblatt 3#
+
+
