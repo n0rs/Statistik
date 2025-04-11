@@ -31,6 +31,7 @@ with open("output_Übungsblatt5.txt", "w") as f:
         ]
     }
     df = pd.DataFrame(data)
+    print("Aufgabe 1 Urliste")
     print(df)
 
     # Varianz
@@ -54,13 +55,19 @@ with open("output_Übungsblatt5.txt", "w") as f:
     df2["Dichtefunktion"] = df2["Relative Häufigkeit"] / df2["Klassenbreite"]  # f(i)
     df2["Kumulative Häufigkeit"] = df2["Relative Häufigkeit"].cumsum()  # F(x)
 
-    print(df2)
+    print("Aufgabe 1 Häufigkeitstabelle")
 
     # Varianz
     x = 0
+    arithmetisches_mittel = 0
+    for y in range(6):
+        arithmetisches_mittel += (df2["Absolute Häufigkeit"][y] * df2["Klassenmitte"][y])
+
+    arithmetisches_mittel = arithmetisches_mittel / df2["Absolute Häufigkeit"].sum()
+    print(arithmetisches_mittel)
     for i in range(6):
-        x += df2["Absolute Häufigkeit"][i] * (df2["Klassenmitte"][i] - df2["Klassenmitte"].mean())**2 
-    varianz_haeufigkeitstabelle = x / 6
+        x += df2["Absolute Häufigkeit"][i] * (df2["Klassenmitte"][i] - arithmetisches_mittel)**2 
+    varianz_haeufigkeitstabelle = x / df2["Absolute Häufigkeit"].sum()
     print(f"\nVarianz aus Häufigkeitstabelle: {varianz_haeufigkeitstabelle:.2f}")
 
     std_haeufigkeitstabelle = varianz_haeufigkeitstabelle**0.5
@@ -80,7 +87,7 @@ with open("output_Übungsblatt5.txt", "w") as f:
     }
 
     df3 = pd.DataFrame(data3)
-    print(df3)
+    print("Aufgabe 2")
 
     varianz_Studiendauer = df3["S"].var(ddof=0)
     std_Studiendauer = varianz_Studiendauer**0.5
@@ -105,12 +112,19 @@ with open("output_Übungsblatt5.txt", "w") as f:
     df4["Relative Häufigkeit"] = df4["Häufigkeit"] / df4["Häufigkeit"].sum()
     df4["Klassendichte"] = df4["Relative Häufigkeit"] / df4["Klassenbreite"]
     df4["Kumulierte Häufigkeit"] = df4["Relative Häufigkeit"].cumsum()
-    print(df4)
+    print("Aufgabe 3/1")
 
+    z = 0
+    arithmetisches_mittel2 = 0
+    for z in range(7):
+        arithmetisches_mittel2 += (df4["Häufigkeit"][z] * df4["Klassenmitte"][z])
+
+    arithmetisches_mittel2 = arithmetisches_mittel2 / df4["Häufigkeit"].sum()
     y = 0
     for i in range(7):
-        y += df4["Häufigkeit"][i] * (df4["Klassenmitte"][i] - df4["Klassenmitte"].mean())**2
-    varianz_a1 = y / 6
+        y += df4["Häufigkeit"][i] * (df4["Klassenmitte"][i] - arithmetisches_mittel2)**2
+
+    varianz_a1 = y / 5000
     print(f"\nVarianz aus Häufigkeitstabelle: {varianz_a1:.2f}")
 
     std_a1 = varianz_a1**0.5
@@ -131,13 +145,19 @@ with open("output_Übungsblatt5.txt", "w") as f:
         "f(n BY)": [0.00025, 0.00106667, 0.00156667, 0.0004, 0.0001, 0.00002],
     }
     df5 = pd.DataFrame(data5)
-    print(df5)
+    print("Aufgabe 3/3")
 
+    arithmetisches_mittel3 = 0
+    for p in range(6):
+        arithmetisches_mittel3 = df5["n NRW"][p] * df5["Klassenmitten"][p]
+    arithmetisches_mittel3 = arithmetisches_mittel3 / df5["n NRW"].sum()
     z = 0
     for i in range(6):
-        z += df5["n NRW"][i] * (df5["Klassenmitten"][i] - df5["Klassenmitten"].mean())**2
-    varianz_a3_NRW = z / 6
+        z += df5["n NRW"][i] * (df5["Klassenmitten"][i] - arithmetisches_mittel3)**2
+
+    varianz_a3_NRW = z / df5["n NRW"].sum()
     print(f"\nVarianz aus Häufigkeitstabelle NRW: {varianz_a3_NRW:.2f}")
+
     std_a3_NRW = varianz_a3_NRW**0.5
     print(f"Standardabweichung aus Häufigkeitstabelle NRW: {std_a3_NRW:.2f}\n")
 
