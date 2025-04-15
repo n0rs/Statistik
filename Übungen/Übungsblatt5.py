@@ -32,7 +32,6 @@ with open("output_Übungsblatt5.txt", "w") as f:
     }
     df = pd.DataFrame(data)
     print("Aufgabe 1 Urliste")
-    print(df)
 
     # Varianz
     varianz_urliste = df["Einkommen"].var(ddof=0) 
@@ -64,7 +63,7 @@ with open("output_Übungsblatt5.txt", "w") as f:
         arithmetisches_mittel += (df2["Absolute Häufigkeit"][y] * df2["Klassenmitte"][y])
 
     arithmetisches_mittel = arithmetisches_mittel / df2["Absolute Häufigkeit"].sum()
-    print(arithmetisches_mittel)
+    
     for i in range(6):
         x += df2["Absolute Häufigkeit"][i] * (df2["Klassenmitte"][i] - arithmetisches_mittel)**2 
     varianz_haeufigkeitstabelle = x / df2["Absolute Häufigkeit"].sum()
@@ -149,7 +148,7 @@ with open("output_Übungsblatt5.txt", "w") as f:
 
     arithmetisches_mittel3 = 0
     for p in range(6):
-        arithmetisches_mittel3 = df5["n NRW"][p] * df5["Klassenmitten"][p]
+        arithmetisches_mittel3 += df5["n NRW"][p] * df5["Klassenmitten"][p]
     arithmetisches_mittel3 = arithmetisches_mittel3 / df5["n NRW"].sum()
     z = 0
     for i in range(6):
@@ -162,10 +161,16 @@ with open("output_Übungsblatt5.txt", "w") as f:
     print(f"Standardabweichung aus Häufigkeitstabelle NRW: {std_a3_NRW:.2f}\n")
 
 
+    arithmetisches_mittel4 = 0
+    for i in range(6):
+        arithmetisches_mittel4 += df5["n BY"][i] * df5["Klassenmitten"][i]
+
+    arithmetisches_mittel4 = arithmetisches_mittel4 / df5["n BY"].sum()
+
     z2 = 0
     for i in range(6):
-        z2 += df5["n BY"][i] * (df5["Klassenmitten"][i] - df5["Klassenmitten"].mean())**2
-    varianz_a3_BY = z2 / 6
+        z2 += df5["n BY"][i] * (df5["Klassenmitten"][i] -arithmetisches_mittel4)**2
+    varianz_a3_BY = z2 / df5["n BY"].sum()
     print(f"\nVarianz aus Häufigkeitstabelle BY: {varianz_a3_BY:.2f}")
     std_a3_BY = varianz_a3_BY**0.5
     print(f"Standardabweichung aus Häufigkeitstabelle BY: {std_a3_BY:.2f}\n")
@@ -195,7 +200,7 @@ with open("output_Übungsblatt5.txt", "w") as f:
     df6["Relative Häufigkeit"] = df6["Häufigkeit"] / df6["Häufigkeit"].sum()
     df6["Klassendichte"] = df6["Relative Häufigkeit"] / df6["Klassenbreite"]
     df6["Kumulative Häufigkeit"] = df6["Relative Häufigkeit"].cumsum()
-    print(df6)
+    print("Aufgabe 4")
 
     # arithmetisches Mittel
     arithmetisches_mittel_a4 = (df6["Klassenmitte"] * df6["Relative Häufigkeit"]).sum()
