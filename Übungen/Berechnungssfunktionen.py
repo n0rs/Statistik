@@ -34,6 +34,3 @@ def unteres_quartil_wert(quartilwert, klassendichte, klasse, klassen_spalte):
   #  dichte = klassendichte.loc[klassendichte.index[klassendichte.index == klasse]].values[0]
 
    # return untere_grenze + (quartilwert - vorherige_kumulierte_haeufigkeit) / dichte
-
-if __name__ == "__main__":
-    main()
