@@ -5,6 +5,7 @@ import numpy as np
 import sys
 from fpdf import FPDF
 import os
+import Berechnungssfunktionen as br
 
 # Umleitung der Ausgabe in eine Textdatei
 with open("output_Übungsblatt5.txt", "w") as f:
@@ -119,6 +120,7 @@ with open("output_Übungsblatt5.txt", "w") as f:
         arithmetisches_mittel2 += (df4["Häufigkeit"][z] * df4["Klassenmitte"][z])
 
     arithmetisches_mittel2 = arithmetisches_mittel2 / df4["Häufigkeit"].sum()
+
     y = 0
     for i in range(7):
         y += df4["Häufigkeit"][i] * (df4["Klassenmitte"][i] - arithmetisches_mittel2)**2
