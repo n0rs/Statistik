@@ -1,6 +1,3 @@
-import numpy as np
-import pandas as pd
-
 def arith_mittel(häufigkeit, klassenmitte):
     z = 0
     for i in range(häufigkeit.count()):
