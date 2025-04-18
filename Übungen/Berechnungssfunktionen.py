@@ -34,3 +34,33 @@ def unteres_quartil_wert(quartilwert, klassendichte, klasse, klassen_spalte):
   #  dichte = klassendichte.loc[klassendichte.index[klassendichte.index == klasse]].values[0]
 
    # return untere_grenze + (quartilwert - vorherige_kumulierte_haeufigkeit) / dichte
+
+def chi_quadrat_wert (a, b):
+    x_list = []
+    e_list = []
+    for i in range(a.count()):
+        e_list.append((a[i] + b[i]) * a.sum() / (a.sum() + b.sum()))
+    for j in range(b.count()):
+        e_list.append((a[j] + b[j]) * b.sum() / (a.sum() + b.sum()))
+    for j in range(a.count()):
+        x_list.append((a[j] - e_list[j])**2 / e_list[j])
+    for j in range(b.count()):
+        x_list.append((b[j] - e_list[j + len(e_list) // 2])**2 / e_list[j + len(e_list) // 2])
+    return sum(x_list)
+
+def phi_koeffizient_wert(chi_quadrat, häufigkeit):
+    return (chi_quadrat / häufigkeit.count().sum())**0.5
+
+def kontingenzkoeffizient_wert(chi_quadrat, häufigkeit):
+    return (chi_quadrat / (chi_quadrat + häufigkeit.count().sum()))**0.5
+
+def cramer_v_wert(chi_quadrat, häufigkeit):
+    return (chi_quadrat / (häufigkeit.count().sum() * (min(häufigkeit.count()) - 1)))**0.5
+
+def rangkorrelation_wert(ränge):
+    r = []
+    for i in range(ränge[0].count()):
+        r.append((ränge[0][i] - ränge[1][i])**2)
+    rs = 1 - (6 * sum(r) / (ränge[0].count()* (ränge[0].count()**2 - 1)))
+    return rs
+
