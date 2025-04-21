@@ -57,7 +57,7 @@ def kontingenzkoeffizient_wert(chi_quadrat, häufigkeit):
 def cramer_v_wert(chi_quadrat, häufigkeit):
     return (chi_quadrat / (häufigkeit.count().sum() * (min(häufigkeit.count()) - 1)))**0.5
 
-def rangkorrelation_wert(ränge):
+def rangkorrelation_wert_spearman(ränge):
     r = []
     for i in range(ränge[0].count()):
         r.append((ränge[0][i] - ränge[1][i])**2)
