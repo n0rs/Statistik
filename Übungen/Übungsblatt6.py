@@ -81,8 +81,6 @@ with open("output_Übungsblatt6.txt", "w") as f:
 
     spearman_korrelation = df2["X"].corr(df2["Y"], method="spearman")
     print(f"Spearman-Korrelation: {spearman_korrelation}")
-    rangkorrelation2 = bf.rangkorrelation_wert_spearman([df2["Rang_X"], df2["Rang_Y"]])
-    print(f"Rangkorrelation: {rangkorrelation2:.4f}")
 
     pearson_korrelation = df2["X"].corr(df2["Y"], method="pearson")
     print(f"Pearson-Korrelation: {pearson_korrelation:.4f}")
