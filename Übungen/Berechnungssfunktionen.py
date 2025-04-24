@@ -38,14 +38,24 @@ def unteres_quartil_wert(quartilwert, klassendichte, klasse, klassen_spalte):
 def chi_quadrat_wert (a, b):
     x_list = []
     e_list = []
-    for i in range(a.count()):
-        e_list.append((a[i] + b[i]) * a.sum() / (a.sum() + b.sum()))
-    for j in range(b.count()):
-        e_list.append((a[j] + b[j]) * b.sum() / (a.sum() + b.sum()))
-    for j in range(a.count()):
-        x_list.append((a[j] - e_list[j])**2 / e_list[j])
-    for j in range(b.count()):
-        x_list.append((b[j] - e_list[j + len(e_list) // 2])**2 / e_list[j + len(e_list) // 2])
+    if type(a) == "class 'pandas.core.frame.DataFrame'":
+        for i in range(a.count()):
+            e_list.append((a[i] + b[i]) * a.sum() / (a.sum() + b.sum()))
+        for j in range(b.count()):
+            e_list.append((a[j] + b[j]) * b.sum() / (a.sum() + b.sum()))
+        for j in range(a.count()):
+            x_list.append((a[j] - e_list[j])**2 / e_list[j])
+        for j in range(b.count()):
+            x_list.append((b[j] - e_list[j + len(e_list) // 2])**2 / e_list[j + len(e_list) // 2])
+    else:
+        for i in range(len(a)):
+            e_list.append((a[i] + b[i]) * sum(a) / (sum(a) + sum(b)))
+        for j in range(len(b)):
+            e_list.append((a[j] + b[j]) * sum(b) / (sum(a) + sum(b)))
+        for j in range(len(a)):
+            x_list.append((a[j] - e_list[j])**2 / e_list[j])
+        for j in range(len(b)):
+            x_list.append((b[j] - e_list[j + len(e_list) // 2])**2 / e_list[j + len(e_list) // 2])
     return sum(x_list)
 
 def phi_koeffizient_wert(chi_quadrat, häufigkeit):
