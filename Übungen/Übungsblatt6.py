@@ -4,6 +4,7 @@ import seaborn as sns
 import pandas as pd
 import Berechnungssfunktionen as bf
 import sys
+import scipy.stats
 from fpdf import FPDF
 import os
 
@@ -81,8 +82,9 @@ with open("output_Übungsblatt6.txt", "w") as f:
 
     spearman_korrelation = df2["X"].corr(df2["Y"], method="spearman")
     print(f"Spearman-Korrelation: {spearman_korrelation}")
-    rangkorrelation2 = bf.rangkorrelation_wert_spearman([df2["Rang_X"], df2["Rang_Y"]])
-    print(f"Rangkorrelation: {rangkorrelation2:.4f}")
+
+    spearman_korrelation3 = scipy.stats.spearmanr(df2["X"], df2["Y"])
+    print(spearman_korrelation3[0])
 
     pearson_korrelation = df2["X"].corr(df2["Y"], method="pearson")
     print(f"Pearson-Korrelation: {pearson_korrelation:.4f}")
