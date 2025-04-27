@@ -58,9 +58,6 @@ def chi_quadrat_wert(a, b):
             x_list.append((b[j] - e_list[j + len(e_list) // 2])**2 / e_list[j + len(e_list) // 2])
     return sum(x_list)
 
-def chi_quadrat_wert2():
-    a=0
-    #TODO
 
 def phi_koeffizient_wert(chi_quadrat, häufigkeit):
     return (chi_quadrat / häufigkeit.count().sum())**0.5

@@ -12,7 +12,7 @@ import os
 with open("output_Übungsblatt6.txt", "w") as f:
     sys.stdout = f
     # Hier das gesamte Skript ausführen
-    print("Ausgabe von Übungsblatt5:")
+    print("Ausgabe von Übungsblatt6:")
 
     data = {
         "Brauerei": ["Warsteiner", "Bitburger", "Krombacher", "Holsten", "Veltins", "König", "Paulaner", "Henninger", "Licher"],
