@@ -6,7 +6,7 @@ from fpdf import FPDF
 
 
 
-with open("output_Übungsblatt7.txt", "w") as f:
+with open("Übungsblatt7.txt", "w") as f:
     sys.stdout = f
     # Hier das gesamte Skript ausführen
     print("Übungsblatt7:")
@@ -56,7 +56,7 @@ with open("output_Übungsblatt7.txt", "w") as f:
     print(f"Chi Quadrat Wert der Merkmale: {chi_quadrat}")
 
 
-    print("\nAufgabe 3.1")
+    print("\nAufgabe 3")
 
     # Neue Kontingenztabelle
     data2 = {
@@ -78,10 +78,10 @@ pdf.add_page()
 pdf.set_font("Arial", size=12)
 
 # Ausgabe in die PDF schreiben
-with open("output_Übungsblatt7.txt", "r") as f:
+with open("Übungsblatt7.txt", "r") as f:
     for line in f:
         pdf.cell(200, 10, txt=line, ln=True)
 
 
-pdf.output("output_Übungsblatt7.pdf")
-os.remove("output_Übungsblatt7.txt")
+pdf.output("Übungsblatt7.pdf")
+os.remove("Übungsblatt7.txt")
