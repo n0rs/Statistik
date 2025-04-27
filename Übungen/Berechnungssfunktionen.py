@@ -35,7 +35,7 @@ def unteres_quartil_wert(quartilwert, klassendichte, klasse, klassen_spalte):
 
    # return untere_grenze + (quartilwert - vorherige_kumulierte_haeufigkeit) / dichte
 
-def chi_quadrat_wert (a, b):
+def chi_quadrat_wert(a, b):
     x_list = []
     e_list = []
     if type(a) == "class 'pandas.core.frame.DataFrame'":
@@ -57,6 +57,10 @@ def chi_quadrat_wert (a, b):
         for j in range(len(b)):
             x_list.append((b[j] - e_list[j + len(e_list) // 2])**2 / e_list[j + len(e_list) // 2])
     return sum(x_list)
+
+def chi_quadrat_wert2():
+    a=0
+    #TODO
 
 def phi_koeffizient_wert(chi_quadrat, häufigkeit):
     return (chi_quadrat / häufigkeit.count().sum())**0.5

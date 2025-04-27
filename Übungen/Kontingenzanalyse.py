@@ -22,5 +22,6 @@ b = [df["y1 = unbefriedigend"][1], df["y2 = befriedigend"][1]]
 chi_quadrat = bf.chi_quadrat_wert(a, b)
 print(chi_quadrat)
 
-
+phi_koeffizient = bf.phi_koeffizient_wert(chi_quadrat, df["y1 = unbefriedigend"].iloc[:2])
+print(phi_koeffizient)
 
