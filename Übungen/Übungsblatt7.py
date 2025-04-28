@@ -15,7 +15,7 @@ with open("Übungsblatt7.txt", "w") as f:
     data = {
         "Rauchverhalten": ["Starker Raucher", "Mäßiger Raucher", "Nichtraucher"],
         "männlich": [300, 50, 150],
-        "weiblich": [600, 100, 30]
+        "weiblich": [600, 100, 300]
     }
 
     # DataFrame erstellen
@@ -61,9 +61,9 @@ with open("Übungsblatt7.txt", "w") as f:
     # Neue Kontingenztabelle
     data2 = {
         "Studienjahr": ["1. Studienjahr", "2. Studienjahr", "3. Studienjahr", "4. Studienjahr", "Gesamt"],
-        "In Köln": [0, 9, 8, 15, 32],  # Personen, die in Köln wohnen
-        "Nicht in Köln": [40, 26, 0, 15, 81],  # Personen, die nicht in Köln wohnen
-        "Gesamt": [40, 35, 8, 30, 150]  # Gesamtsumme pro Studienjahr
+        "In Köln": [13, 9, 8, 15, 45],  # Personen, die in Köln wohnen
+        "Nicht in Köln": [27, 26, 37, 15, 105],  # Personen, die nicht in Köln wohnen
+        "Gesamt": [40, 35, 45, 30, 150]  # Gesamtsumme pro Studienjahr
     }
 
     df2 = pd.DataFrame(data2)
